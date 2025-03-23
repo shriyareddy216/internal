@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Dashes Between Even Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Insert Dashes Between Even Numbers</h2>
+    <label for="numberInput">Enter a Number:</label>
+    <input type="text" id="numberInput" placeholder="e.g. 025468">
+    <br>
+    <button onclick="formatNumber()">Format Number</button>
+
+    <div id="result"></div>
+
+    <script>
+        function insertDashes(num) {
+            let numStr = num.toString();
+            let result = "";
+
+            for (let i = 0; i < numStr.length; i++) {
+                result += numStr[i];
+                if (i < numStr.length - 1 && numStr[i] % 2 === 0 && numStr[i + 1] % 2 === 0) {
+                    result += "-";
+                }
+            }
+
+            return result;
+        }
+
+        function formatNumber() {
+            let inputNum = document.getElementById("numberInput").value;
+            if (inputNum === "") {
+                alert("Please enter a number!");
+                return;
+            }
+            document.getElementById("result").innerText = `Formatted Output: ${insertDashes(inputNum)}`;
+        }
+    </script>
+
+</body>
+</html>

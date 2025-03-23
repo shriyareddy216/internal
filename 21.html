@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Frequent Item in Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Find the Most Frequent Item in an Array</h2>
+    <label for="arrayInput">Enter Array Elements (comma-separated):</label>
+    <input type="text" id="arrayInput" placeholder="e.g. 3, a, a, 2, 3">
+    <br>
+    <button onclick="findFrequency()">Find Most Frequent</button>
+
+    <div id="result"></div>
+
+    <script>
+        function findMostFrequent(arr) {
+            let frequencyMap = {};
+            let maxCount = 0;
+            let mostFrequentItem;
+
+            for (let item of arr) {
+                frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+                if (frequencyMap[item] > maxCount) {
+                    maxCount = frequencyMap[item];
+                    mostFrequentItem = item;
+                }
+            }
+
+            return `${mostFrequentItem} (${maxCount} times)`;
+        }
+
+        function findFrequency() {
+            let input = document.getElementById("arrayInput").value;
+            if (!input.trim()) {
+                alert("Please enter an array!");
+                return;
+            }
+
+            let arr = input.split(",").map(item => item.trim());
+            document.getElementById("result").innerText = `Most Frequent: ${findMostFrequent(arr)}`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        main {
+            padding: 20px;
+        }
+        .hobbies-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .hobby {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px gray;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 2px 2px 10px gray;
+            border-radius: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid gray;
+        }
+        button {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Hobbies</h1>
+    </header>
+
+    <main>
+        <section class="hobbies-container">
+            <div class="hobby">
+                <h2>📚 Reading</h2>
+                <p>Favorite Books:</p>
+                <ul>
+                    <li>Harry Potter</li>
+                    <li>Sherlock Holmes</li>
+                    <li>Atomic Habits</li>
+                </ul>
+                <img src="https://source.unsplash.com/250x150/?books,reading" alt="Reading">
+            </div>
+
+            <div class="hobby">
+                <h2>🎵 Music</h2>
+                <p>Favorite Artists:</p>
+                <ul>
+                    <li>AR Rahman</li>
+                    <li>The Beatles</li>
+                    <li>Coldplay</li>
+                </ul>
+                <img src="https://source.unsplash.com/250x150/?music,guitar" alt="Music">
+            </div>
+
+            <div class="hobby">
+                <h2>🎥 Movies</h2>
+                <p>Favorite Movies:</p>
+                <ul>
+                    <li>Interstellar</li>
+                    <li>Inception</li>
+                    <li>The Dark Knight</li>
+                </ul>
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <h2>💬 Feedback Form</h2>
+        <form id="feedback-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" rows="4" placeholder="Share your thoughts..." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2025 My Hobbies | Designed with ❤️</p>
+    </footer>
+
+    <script>
+        document.getElementById("feedback-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let feedback = document.getElementById("feedback").value;
+            alert(`Thank you, ${name}! Your feedback: "${feedback}" has been submitted.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>

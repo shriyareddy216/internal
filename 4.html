@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBGYOR IMPLEMENTATION</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80;
+        }
+
+        .column {
+            width: 100px;
+            height: 400px;
+            margin: 5px;
+            transition: filter 0.3s ease;
+        }
+
+        /* VIBGYOR Colors */
+        .violet { background-color: #8B00FF; }
+        .indigo { background-color: #4B0082; }
+        .blue   { background-color: #0000FF; }
+        .green  { background-color: #00FF00; }
+        .yellow { background-color: #FFFF00; }
+        .orange { background-color: #FF7F00; }
+        .red    { background-color: #FF0000; }
+
+        /* Hover Effect */
+        .column:hover {
+            filter: brightness(1.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>VIBGYOR IMPLEMENTATION</h1>
+
+    <div class="container">
+        <div class="column violet"></div>
+        <div class="column indigo"></div>
+        <div class="column blue"></div>
+        <div class="column green"></div>
+        <div class="column yellow"></div>
+        <div class="column orange"></div>
+        <div class="column red"></div>
+    </div>
+
+</body>
+</html>

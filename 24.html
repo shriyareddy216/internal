@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Pizza Order</h2>
+    <table border="1">
+        <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Chicken Pizza</td>
+            <td>100</td>
+            <td><input type="number" id="cp" min="0" required></td>
+        </tr>
+        <tr>
+            <td>Paneer Pizza</td>
+            <td>80</td>
+            <td><input type="number" id="pp" min="0" required></td>
+        </tr>
+        <tr>
+            <td>Veg Pizza</td>
+            <td>70</td>
+            <td><input type="number" id="vp" min="0" required></td>
+        </tr>
+    </table>
+    <br>
+
+    <button onclick="totalPrice()">Calculate Total</button>
+    <input type="text" id="total" readonly>
+    <br><br>
+
+    <button onclick="confirmOrder()">Confirm Order</button>
+    <button onclick="cancelOrder()">Cancel Order</button>
+
+    <script>
+        function totalPrice() {
+            let cp = parseInt(document.getElementById('cp').value) || 0;
+            let pp = parseInt(document.getElementById('pp').value) || 0;
+            let vp = parseInt(document.getElementById('vp').value) || 0;
+            let total = (100 * cp) + (80 * pp) + (70 * vp);
+            document.getElementById('total').value = total;
+        }
+
+        function confirmOrder() {
+            let cp = parseInt(document.getElementById('cp').value) || 0;
+            let pp = parseInt(document.getElementById('pp').value) || 0;
+            let vp = parseInt(document.getElementById('vp').value) || 0;
+            let total = document.getElementById('total').value;
+
+            if (total === "") {
+                alert("Please calculate the total price first!");
+                return;
+            }
+
+            let message = "Order Confirmed!\n\n";
+            if (cp > 0) message += `Chicken Pizza: ${cp} x ₹100\n`;
+            if (pp > 0) message += `Paneer Pizza: ${pp} x ₹80\n`;
+            if (vp > 0) message += `Veg Pizza: ${vp} x ₹70\n`;
+            message += `\nTotal Price: ₹${total}`;
+
+            alert(message);
+        }
+
+        function cancelOrder() {
+            document.getElementById('cp').value = "";
+            document.getElementById('pp').value = "";
+            document.getElementById('vp').value = "";
+            document.getElementById('total').value = "";
+            alert("Order Cancelled!");
+        }
+    </script>
+
+</body>
+</html>
